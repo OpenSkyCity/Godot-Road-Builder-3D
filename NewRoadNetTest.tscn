@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://_terrain_data/data.hterrain" type="Resource" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://building_system/buildable.tres" type="Material" id=12]
 [ext_resource path="res://zoning/GridNode.gd" type="Script" id=13]
 [ext_resource path="res://building_system/building_network.tscn" type="PackedScene" id=14]
+[ext_resource path="res://building_system/builder.tscn" type="PackedScene" id=15]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 2 )
@@ -123,6 +124,10 @@ script = ExtResource( 13 )
 [node name="ImmediateGeometry" type="ImmediateGeometry" parent="HTerrain/ZoneSystem/GridNode"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0 )
 material_override = SubResource( 9 )
+
+[node name="Builder" parent="HTerrain" instance=ExtResource( 15 )]
+building_net_np = NodePath("../GlobalBuildingNetwork")
+road_network_np = NodePath("../GlobalRoadNetwork")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 3 )

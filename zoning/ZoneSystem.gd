@@ -55,8 +55,8 @@ func _on_RoadNetwork_road_segment_created(segment: RoadSegmentBase):
 	for point in zone_poly_2:
 		DrawingUtils.draw_empty_circle($ImmediateGeometry, point, 0.25, Color.blueviolet)
 	
-	DrawingUtils.triangulate_points($ImmediateGeometry, zone_poly)
-	DrawingUtils.triangulate_points($ImmediateGeometry, zone_poly_2, Color.brown)
+#	DrawingUtils.triangulate_points($ImmediateGeometry, zone_poly)
+#	DrawingUtils.triangulate_points($ImmediateGeometry, zone_poly_2, Color.brown)
 	var grid = grid_node.create_grid(str(segment.id), zone_start_start_pos, zone_end_end_pos)
 	print("GRID: ", grid)
 	road_grid_map[segment] = (grid)

@@ -76,11 +76,12 @@ func stop_dragging(event: InputEventMouseButton):
 	_end_segment = snapped_segment
 	_is_dragging = false
 	
-	var inter = global_road_network.get_closest_point_to(_drag_start.position)
+	var inter = global_road_network.get_closest_point_to(_drag_start.position, 1)
 	if not inter:
 		inter = _drag_start.duplicate()
 	_drag_end = snap_intersection(inter, _drag_end.duplicate())
-	var inter2 = global_road_network.get_closest_point_to(_drag_end.position)
+	var inter2 = global_road_network.get_closest_point_to(_drag_end.position, 1)
+	prints("intersection 2 end", inter2)
 	if not inter2:
 		inter2 = _drag_end.duplicate()
 	

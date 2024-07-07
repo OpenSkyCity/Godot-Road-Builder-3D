@@ -100,6 +100,7 @@ option/invert/tilting = false
 
 [node name="ImmediateGeometry" type="ImmediateGeometry" parent="HTerrain"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0 )
+visible = false
 material_override = SubResource( 4 )
 
 [node name="MeshInstance" type="MeshInstance" parent="HTerrain"]
@@ -116,6 +117,7 @@ script = ExtResource( 9 )
 
 [node name="ImmediateGeometry" type="ImmediateGeometry" parent="HTerrain/ZoneSystem"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0 )
+visible = false
 material_override = SubResource( 8 )
 
 [node name="GridNode" type="Spatial" parent="HTerrain/ZoneSystem"]
@@ -123,6 +125,7 @@ script = ExtResource( 13 )
 
 [node name="ImmediateGeometry" type="ImmediateGeometry" parent="HTerrain/ZoneSystem/GridNode"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0 )
+visible = false
 material_override = SubResource( 9 )
 
 [node name="Builder" parent="HTerrain" instance=ExtResource( 15 )]
@@ -152,6 +155,7 @@ non_buildable_mat = ExtResource( 11 )
 
 [node name="ImmediateGeometry" type="ImmediateGeometry" parent="Tools/RoadTool/States/RoadToolStraight"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.004, 0 )
+visible = false
 material_override = SubResource( 10 )
 
 [node name="Debug" type="Control" parent="."]

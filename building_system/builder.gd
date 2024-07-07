@@ -7,7 +7,7 @@ onready var road_network: RoadNetwork = get_node_or_null(road_network_np) as Roa
 var building_1 = BuildingType.new("test_id", "Test Name", load("res://models/house1/building1.tscn"), 2)
 var building_2 = BuildingType.new("test_id2", "Test Name 2", load("res://models/house2/house2.tscn"), 2)
 
-var buildings = [building_1, building_2]
+var buildings = [building_1,building_1,building_1, building_2]
 
 func _ready():
 	
@@ -16,7 +16,7 @@ func _ready():
 
 func _on_Timer_timeout():
 	print("Trying to place a building")
-	var segs = sample_random(road_network.get_all_segments(), 3)
+	var segs = sample_random(road_network.get_all_segments(), max(3, randi() % 15))
 	for seg in segs:
 			
 		var closest_point = (seg as RoadSegmentBase).get_point(randf())
@@ -46,7 +46,7 @@ func calculate_transform(point, closest_point, building_transform, selected_buil
 	var angle = angle_b - angle_a
 	
 	new_building_transform.basis = new_building_transform.basis.rotated(Vector3.UP, angle)
-	
+	new_building_transform.origin.y += 0.02
 #	var b_scale = selected_building.transform.basis.get_scale()
 #	new_building_transform.basis = new_building_transform.basis.scaled(b_scale)
 	return new_building_transform
